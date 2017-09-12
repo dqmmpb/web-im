@@ -67,7 +67,10 @@ Strophe.Websocket.prototype._onMessage = function (message) {
         var start = data.indexOf('<jid>'),
             end = data.indexOf('</jid>'),
             data = data.substring(start + 5, end);
-        stropheConn.setJid(data);
+        //stropheConn.setJid(data);
+        stropheConn.jid = data;
+        stropheConn.authzid = Strophe.getBareJidFromJid(stropheConn.jid);
+        stropheConn.authcid = Strophe.getNodeFromJid(stropheConn.jid);
     }
 
     var elem, data;
@@ -1264,7 +1267,7 @@ connection.prototype.addHandler = function (handler, ns, name, type, id, from, o
  * @private
  */
 connection.prototype.notifyVersion = function (suc, fail) {
-    var jid = stropheConn.getJid();
+    var jid = stropheConn.jid;
     this.context.jid = jid;
     var dom = $iq({
         from: jid || ''

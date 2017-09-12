@@ -4,14 +4,15 @@ module.exports = {
     entry: {
         './sdk/dist/websdk-1.4.12': ['./sdk/index'],
         './demo/javascript/dist/demo-1.4.12': ['./demo/javascript/src/entry'],
-        './webrtc/dist/webrtc-1.4.12': ['./webrtc/src/entry']
+        './webrtc/dist/webrtc-1.4.12': ['./webrtc/src/entry'],
+        './sdk/dist/strophe-1.2.14': ['./sdk/dist/strophe-1.2.14'],
     },
     output: {
         path: './',
         publicPath: './',
-        filename: '[name].js'
+        filename: '[name].min.js'
     },
-    // devtool: '#eval-cheap-module-source-map',
+    devtool: 'source-map',
     resolve: {
         extensions: ['', '.js', '.jsx']
     },

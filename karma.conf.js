@@ -57,7 +57,7 @@ module.exports = function (config) {
                 included: true,
             },
             {
-                pattern: './sdk/dist/strophe-1.2.8.js',
+                pattern: './sdk/dist/strophe-1.2.14.js',
                 included: true,
             },
 
